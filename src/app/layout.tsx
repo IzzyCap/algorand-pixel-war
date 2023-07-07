@@ -1,3 +1,4 @@
+'use client'
 import { NotificationContextProvider } from '@/store/notification-context'
 import './globals.css'
 import { Inter } from 'next/font/google'
@@ -8,11 +9,6 @@ import { useEffect, useState } from 'react';
 import Layout from '@/components/layout/layout'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata = {
-  title: 'Algorand Pixel War ',
-  description: 'Buy Pixels to draw them as you want, pixels are NFTs from Algorand Blockchain.',
-}
 
 // Create the PeraWalletConnect instance outside of the component
 export const peraWallet = new PeraWalletConnect();
