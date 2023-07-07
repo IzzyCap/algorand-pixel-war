@@ -1,4 +1,3 @@
-'use client'
 import { NotificationContextProvider } from '@/store/notification-context'
 import './globals.css'
 import { Inter } from 'next/font/google'
