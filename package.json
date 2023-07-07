@@ -14,7 +14,7 @@
     "@types/node": "20.3.1",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
-    "algosdk": "^1.19.0",
+    "algosdk": "^2.4.0",
     "config": "^3.3.6",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
