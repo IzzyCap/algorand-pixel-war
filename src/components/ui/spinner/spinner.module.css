@@ -1,0 +1,40 @@
+.spinnerContainer {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  position: absolute;
+  display: inline-block;
+  animation: spin 5s infinite linear;
+  border-radius: 50%;
+  border: 5px solid var(--primary) !important;
+  border-top-color: var(--white) !important;
+  border-bottom-color: var(--white) !important;
+  border-left-color: 'transparent';
+  border-right-color: 'transparent';
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(720deg);
+  }
+
+  100% {
+    transform: rotate(1440deg);
+  }
+}

@@ -1,0 +1,89 @@
+* {
+  color: #EEF4F7;
+  font-family: 'Poppins-Bold', sans-serif;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../public/fonts/Poppins-Bold.ttf");
+}
+
+:root{
+  --white: #EEF4F7;
+  --black: #1A1A1D;
+  --gray: #263238;
+  --middle-gray: #3f4f57;
+  --light-gray:  #A2AEBB;
+  --dark-red: #6F2232;
+  --middle-red: #950740;
+  --primary: #03be9f;
+  --common: #fff;
+  --uncommon: #1eff00;
+  --rare: #0070dd;
+  --epic: #a335ee;
+  --legendary: #ff8000;
+  --error: #ff4444;
+  --warning: #ffbb33;
+  --success: #00c851;
+  --info: #33b5e5;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  background-color: var(--gray);
+}
+
+.node {
+  height: 40px;
+  width: 40px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: repeat(100, 40px);
+  grid-template-rows: repeat(100, 40px);
+  grid-gap: 4px 4px;
+  margin: 0 25px 25px 25px
+}
+
+.text-center{
+  text-align: center;
+}
+
+.block-center{
+  margin: 0 auto;
+}
+
+.fill-space-body {
+  display: flex;
+  flex: 1;
+  max-height: calc(100vh - 157px);
+  margin: 0px 25px;
+  margin-bottom: 25px;
+}
+
+.collapse {
+  display:none;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

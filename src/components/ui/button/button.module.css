@@ -1,0 +1,26 @@
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1em;
+  background-color: #03be9f;
+  border: 1px solid #03be9f;
+  border-radius: 6px;
+  color: #dafff7;
+  padding: 0.5rem 3rem;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #02afa1;
+  border-color: #02afa1;
+}
+
+.disable {
+  background-color: #b4b4b4 !important;
+  border-color: #b4b4b4 !important;
+  color: white !important;
+  cursor: default;
+}

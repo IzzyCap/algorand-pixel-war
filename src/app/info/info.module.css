@@ -1,0 +1,23 @@
+.container {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  padding: 4em;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.75em;
+  line-height: 1.5em;
+  padding: 1em;
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+}
+
+.link {
+  color: var(--primary);
+}
+

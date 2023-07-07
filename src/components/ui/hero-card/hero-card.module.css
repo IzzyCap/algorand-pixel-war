@@ -1,0 +1,57 @@
+.heroCard h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-indent: 6px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: #263238;
+}
+
+.heroCard h2 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 23px;
+  text-align: center;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #263238;
+  position: relative;
+}
+
+.heroCard h3 {
+  text-transform: uppercase;
+	font-weight: 500;
+	font-size: .9em;
+}
+
+.statsSection {
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 29px;
+  border-bottom: 1px solid #d9d9d9;
+  color: var(--gray);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.statsSectionContainer {
+  display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+  margin-bottom: 18px;
+}
+
+.stat label {
+  color: var(--gray);
+}
+
+.stat div {
+  color: var(--light-gray);
+  font-size: 14px;
+	text-align: center;
+}

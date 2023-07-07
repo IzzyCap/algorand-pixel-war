@@ -1,0 +1,43 @@
+.notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-sizing: border-box;
+  padding: 2.5rem;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.notification h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.notification p {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.info {
+  background-color: var(--info);
+}
+
+.success {
+  background-color: var(--success);
+}
+
+.warning {
+  background-color: var(--warning);
+}
+
+.error {
+  background-color: var(--error);
+}
