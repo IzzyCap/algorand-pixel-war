@@ -21,7 +21,7 @@ export default function Store() {
             After obtaining a Node, you have the ability to modify both its color and message.
           </p>
           <p>
-            To begin, connect your Pera Wallet, which holds the Node, by clicking the top-right button. If you possess the Node "Algorand Pixel War #33 (3, 2)" you can edit it by selecting the corresponding position on the Grid, where x=3 and y=2 (with 0 being the initial position). This action will prompt a modal to appear, presenting a form to modify the Node's data. Once you have made the desired changes, simply click the "Update Node" button to save the updates.
+            To begin, connect your Pera Wallet, which holds the Node, by clicking the top-right button. If you possess the Node Algorand Pixel War #33 (3, 2) you can edit it by selecting the corresponding position on the Grid, where x=3 and y=2 (with 0 being the initial position). This action will prompt a modal to appear, presenting a form to modify the Node s data. Once you have made the desired changes, simply click the (Update Node) button to save the updates.
           </p>
         </Dropdown>
       </div>
