@@ -1,15 +1,15 @@
 import algosdk from 'algosdk';
-import config from 'config';
 
 // Uncomment this if using Purestake
 const token = {
-  'x-api-key': config.get('algorand.token') as string,
+  'x-api-key': process.env.ALGORAND_TOKEN as string,
 };
 // Comment next line if using Purestake
 // const token = config.get('algorand.token');
 
-const port = config.get('algorand.port') as string;
-const server = config.get('algorand.server') as string;
+const port = '';
+const server = process.env.ALGORAND_SERVER as string;
+
 export const algodClient: algosdk.Algodv2 = new algosdk.Algodv2(
   token,
   server,
@@ -19,7 +19,7 @@ export const algodClient: algosdk.Algodv2 = new algosdk.Algodv2(
 export const getAccountNode = async () => {
   try {
     const myaccount = algosdk.mnemonicToSecretKey(
-      config.get('wallet.mnemonic') || ''
+      process.env.WALLET_MNEMONIC as string
     );
     return myaccount;
   } catch (err) {

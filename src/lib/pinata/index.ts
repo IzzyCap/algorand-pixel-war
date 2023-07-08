@@ -1,13 +1,12 @@
 import pinataSDK, { PinataPinOptions } from '@pinata/sdk';
-import config from 'config';
 import algosdk from 'algosdk';
 import { CID } from 'multiformats/cid';
 import fs from 'fs';
 import { getAsset } from '../algorand';
 import multihash from 'multihashes';
 
-const apiKey: string = config.get('pinata.apiKey');
-const apiSecret: string = config.get('pinata.apiSecret');
+const apiKey: string = process.env.PINATA_API_KEY as string;
+const apiSecret: string = process.env.PINATA_API_SECRET as string;
 const pinataClient = pinataSDK(apiKey, apiSecret);
 
 export const cidToReserveURL = (cid: string) => {

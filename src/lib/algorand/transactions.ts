@@ -1,56 +1,5 @@
 import algosdk from "algosdk";
 import { algodClient } from ".";
-import config, { has } from 'config';
-
-export const txMintNode = async (
-  id: string,
-  cid: string,
-  url: string,
-  reserveAddress: string,
-  node: WarNode
-): Promise<algosdk.Transaction> => {
-  // Construct the transaction
-  const params = await algodClient.getTransactionParams().do();
-  // comment out the next two lines to use suggested fee
-  params.fee = algosdk.ALGORAND_MIN_TX_FEE;
-  params.flatFee = true;
-  const enc = new TextEncoder();
-  const note = {
-    name: config.get('collection.name') + id,
-    description: '',
-    image: `ipfs://${cid}`,
-    decimals: 0,
-    unitName: config.get('collection.unitName') + id,
-    image_integrity: '',
-    image_mimetype: config.get('collection.image_mimetype'),
-    properties: {
-      // [TODO]
-      // Palette: palette,
-      // Vehicle: vehicle,
-      // Extra: extra,
-    }, // Here you can add traits info for rarity!
-  };
-
-  const encNote: Uint8Array = enc.encode(JSON.stringify(note));
-  const txn = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
-    from: config.get('walletHeroes.addr'),
-    total: 1,
-    decimals: 0,
-    assetName: config.get('collection.name') + id,
-    unitName: config.get('collection.unitName') + id,
-    assetURL: url,
-    assetMetadataHash: '',
-    defaultFrozen: false,
-    // freeze: config.get('walletHeroes.addr'),
-    manager: config.get('walletHeroes.addr'),
-    // clawback: config.get('walletHeroes.addr'),
-    reserve: reserveAddress,
-    note: encNote,
-    suggestedParams: params,
-  });
-
-  return txn;
-};
 
 export const txConfigNode = async (
   assetID: number,
@@ -66,7 +15,7 @@ export const txConfigNode = async (
     decimals: asset.decimals,
     unitName: asset['unit-name'],
     image_integrity: '',
-    image_mimetype: config.get('collection.image_mimetype'),
+    image_mimetype: 'image/png',
     properties: {
       X: node.x,
       Y: node.y,
@@ -84,12 +33,12 @@ export const txConfigNode = async (
 
   // Note that the change has to come from the existing manager
   const txn = algosdk.makeAssetConfigTxnWithSuggestedParamsFromObject({
-    from: config.get('wallet.addr'),
+    from: process.env.WALLET_ADDR as string,
     note: encNote,
     suggestedParams: params,
     assetIndex: assetID,
     // freeze: config.get('walletHeroes.addr'),
-    manager: config.get('wallet.addr'),
+    manager: process.env.WALLET_ADDR as string,
     // clawback: config.get('walletHeroes.addr'),
     reserve: reserveAddress,
     strictEmptyAddressChecking: false,
