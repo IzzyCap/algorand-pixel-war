@@ -197,7 +197,7 @@ const Grid: React.FC = () => {
           }
           <div>
             <label htmlFor="message">Node Message</label>
-            <input className={classes.inputText} type="message" id="message" ref={messageInputRef}/>
+            <input className={classes.inputText} type="message" id="message" ref={messageInputRef} defaultValue={activeNode?.message}/>
           </div>
           <div>
             <label htmlFor="color">Node Color</label>

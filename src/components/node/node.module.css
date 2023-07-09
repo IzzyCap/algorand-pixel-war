@@ -1,0 +1,35 @@
+.tooltipContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltipOne {
+  padding: 18px 32px;
+  background: var(--middle-gray);
+  position: absolute;
+  width: 220px;
+  max-width: 220px;
+  border-radius: 5px;
+  text-align: center;
+  filter: drop-shadow(0 3px 5px var(--middle-gray));
+  line-height: 1.5;
+  display: none;
+  bottom: 40px;
+  right: -121px;
+}
+
+.tooltipOne:after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  margin-left: -9px;
+  width: 18px;
+  height: 18px;
+  background: var(--middle-gray);
+  transform: rotate(45deg);
+}
+
+.tooltipTrigger:hover + .tooltipOne {
+  display: block;
+}

@@ -90,7 +90,7 @@
 .navElements {
   background-color: var(--gray);
   position: relative;
-  z-index: 9999;
+  z-index: 500;
   border-right: 1px solid var(--black);
 }
 
