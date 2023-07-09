@@ -35,11 +35,13 @@ export default function MainHeader({peraWallet, accountAddress, setAccountAddres
           </li>
         </ul>
       </nav>
+      <div className={classes.peraButton}>
         <Button onClickHandler={
           isConnectedToPeraWallet ? handleDisconnectWalletClick : handleConnectWalletClick
         }>
           { isConnectedToPeraWallet ? `${accountAddress.substring(0, 4)}...${accountAddress.slice(-4)}` : `Connect Wallet` }
         </Button>
+      </div>
     </header>
   )
 

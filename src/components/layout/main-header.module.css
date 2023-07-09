@@ -8,7 +8,7 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
 .navigation a {
   text-decoration: none;
   color: var(--white);
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-left: 2rem;
 }
 
@@ -37,12 +37,22 @@
   height: auto;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .logo {
-    font-size: 2.5rem;
+    display: none;
   }
 
-  .navigation a {
-    font-size: 1.5rem;
+  .navigation a {  
+    margin-left: 0;
+    font-size: 1.25em;
+    padding-right: 1em;
+  }
+
+  .navigation ul {
+    padding: 0;
+  }
+
+  .peraButton {
+    font-size: 0.8em;
   }
 }
