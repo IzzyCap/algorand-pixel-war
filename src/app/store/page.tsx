@@ -12,7 +12,7 @@ export default function Store() {
           <h1 className={classes.title}>
             Change the color and message of a Node and be part of this community mural.
           </h1>
-          <Button link='/hero'>
+          <Button link='https://algoxnft.com/address/CV2QUFUD6C477DLPH5PMG2VSSHSHLXDHCEHUYF5FGV3UEWBNJ23SK47JKE?tab=buy_now'>
             GET A NODE
           </Button>
           <br/>
