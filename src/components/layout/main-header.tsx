@@ -1,9 +1,81 @@
-import Link from "next/link";
+// import Link from "next/link";
+// import classes from './main-header.module.css';
+// import Button from "../ui/button/button";
+// import { PeraWalletConnect } from "@perawallet/connect";
+// import AlgorandContext from '../../store/algorand-context'
+// import { useContext, useEffect } from "react";
+
+// interface HeaderProps {
+//   peraWallet: PeraWalletConnect;
+//   accountAddress: string;
+//   setAccountAddress: React.Dispatch<React.SetStateAction<string>>;
+// };
+
+// export default function MainHeader({peraWallet, accountAddress, setAccountAddress}: HeaderProps) {
+//   const algorandCtx = useContext(AlgorandContext);
+  
+//   const isConnectedToPeraWallet = !!accountAddress;
+
+//   useEffect(() => {
+//     if (isConnectedToPeraWallet) {
+//       algorandCtx.setWalletData(accountAddress, peraWallet);
+//     }
+//   }, [isConnectedToPeraWallet, algorandCtx, accountAddress, peraWallet]);
+
+//   return (
+//     <header className={`${classes.header} header`}>
+//       <nav className={classes.navigation}>
+//         <div className={classes.logo}>
+//           <Link href='/'>Pixel War</Link>
+//         </div>
+//         <ul>
+//           <li>
+//             <Link href='/'>Home</Link>
+//           </li>
+//           <li>
+//             <Link href='/store'>Store</Link>
+//           </li>
+//           <li>
+//             <Link href='/info'>Info</Link>
+//           </li>
+//         </ul>
+//       </nav>
+//       <Button onClickHandler={
+//         isConnectedToPeraWallet ? handleDisconnectWalletClick : handleConnectWalletClick
+//       }>
+//         { isConnectedToPeraWallet ? `${accountAddress.substring(0, 4)}...${accountAddress.slice(-4)}` : `Connect Wallet` }
+//       </Button>
+//     </header>
+//   )
+
+//   function handleConnectWalletClick() {
+//     peraWallet
+//       .connect()
+//       .then((newAccounts) => {
+//         // Setup the disconnect event listener
+//         peraWallet.connector?.on("disconnect", handleDisconnectWalletClick);
+  
+//         setAccountAddress(newAccounts[0]);
+//         algorandCtx.setWalletData(newAccounts[0], peraWallet);
+//       }).catch(() => {
+//         console.log('PeraWalletConnectError: The modal has been closed by the user.');
+//       });
+//   }
+  
+//   function handleDisconnectWalletClick() {
+//     peraWallet.disconnect();
+//     setAccountAddress('');
+//     algorandCtx.disconnectWallet();
+//   }
+// }
+
+
+import { useContext, useEffect, useState } from 'react'
+import AlgorandContext from '@/store/algorand-context';
+import Link from 'next/link';
+import { PeraWalletConnect } from '@perawallet/connect';
+import Button from '../ui/button/button';
 import classes from './main-header.module.css';
-import Button from "../ui/button/button";
-import { PeraWalletConnect } from "@perawallet/connect";
-import AlgorandContext from '../../store/algorand-context'
-import { useContext, useEffect } from "react";
 
 interface HeaderProps {
   peraWallet: PeraWalletConnect;
@@ -11,7 +83,9 @@ interface HeaderProps {
   setAccountAddress: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function MainHeader({peraWallet, accountAddress, setAccountAddress}: HeaderProps) {
+const MainHeader = ({peraWallet, accountAddress, setAccountAddress}: HeaderProps) => {
+  const [showNavbar, setShowNavbar] = useState(false)
+
   const algorandCtx = useContext(AlgorandContext);
   
   const isConnectedToPeraWallet = !!accountAddress;
@@ -22,28 +96,9 @@ export default function MainHeader({peraWallet, accountAddress, setAccountAddres
     }
   }, [isConnectedToPeraWallet, algorandCtx, accountAddress, peraWallet]);
 
-  return (
-    <header className={`${classes.header} header`}>
-      <div className={classes.logo}>
-        <Link href='/'>Pixel War</Link>
-      </div>
-      <nav className={classes.navigation}>
-        <ul>
-          <li>
-            <Link href='/store'>Store</Link>
-            <Link href='/info'>Info</Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={classes.peraButton}>
-        <Button onClickHandler={
-          isConnectedToPeraWallet ? handleDisconnectWalletClick : handleConnectWalletClick
-        }>
-          { isConnectedToPeraWallet ? `${accountAddress.substring(0, 4)}...${accountAddress.slice(-4)}` : `Connect Wallet` }
-        </Button>
-      </div>
-    </header>
-  )
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar)
+  }
 
   function handleConnectWalletClick() {
     peraWallet
@@ -64,4 +119,37 @@ export default function MainHeader({peraWallet, accountAddress, setAccountAddres
     setAccountAddress('');
     algorandCtx.disconnectWallet();
   }
+
+  return (
+    <nav className={classes.navbar}>
+      <div className={classes.container}>
+        <div className={classes.logo}>
+          <Link href='/'>Pixel War</Link>
+        </div>
+        <div className={classes.menuIcon} onClick={handleShowNavbar}>
+          <img alt='Helmet Dropdown' src='/icons/burger.svg'></img>
+        </div>
+        <div className={`${classes.navElements} ${showNavbar && classes.active}`}>
+          <ul>
+            <li>
+              <Link href='/'>Home</Link>
+            </li>
+            <li>
+              <Link href='/store'>Store</Link>
+            </li>
+            <li>
+              <Link href='/info'>Info</Link>
+            </li>
+          </ul>
+        </div>
+        <Button onClickHandler={
+          isConnectedToPeraWallet ? handleDisconnectWalletClick : handleConnectWalletClick
+        }>
+          { isConnectedToPeraWallet ? `${accountAddress.substring(0, 4)}...${accountAddress.slice(-4)}` : `Connect Wallet` }
+        </Button>
+      </div>
+    </nav>
+  )
 }
+
+export default MainHeader

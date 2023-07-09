@@ -176,6 +176,7 @@ const Grid: React.FC = () => {
   }
 
   useEffect(() => {
+    gridCreatead = false;
     if (!data && data?.statusCode !== 200) {
       return
     }
