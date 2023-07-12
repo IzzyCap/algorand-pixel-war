@@ -8,7 +8,7 @@ import Modal from "../ui/modal/modal";
 import classes from './grid.module.css';
 import Spinner from '@/components/ui/spinner/spinner';
 
-const GRID_SIZE = 100;
+const GRID_SIZE = 50;
 
 const COLOR_LIST: string[] = [
   '#F44336',

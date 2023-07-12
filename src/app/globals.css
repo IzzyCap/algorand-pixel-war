@@ -41,8 +41,8 @@ body {
 }
 
 .node {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -52,9 +52,9 @@ body {
 
 .grid {
   display: inline-grid;
-  grid-template-columns: repeat(100, 40px);
-  grid-template-rows: repeat(100, 40px);
-  grid-gap: 4px 4px;
+  grid-template-columns: repeat(50, 30px);
+  grid-template-rows: repeat(50, 30px);
+  grid-gap: 3px 3px;
   margin: 0 25px 25px 25px
 }
 
